@@ -21,13 +21,13 @@
 
     <groupId>net.xfantome</groupId>
     <artifactId>rain</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <scm>
         <connection>scm:git:git://github.com/mrgren/rain.git</connection>
         <developerConnection>scm:git:git@github.com:mrgren/rain.git</developerConnection>
         <url>https://github.com/mrgren/rain</url>
-        <tag>rain-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
