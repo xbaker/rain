@@ -2,7 +2,7 @@
  * Tarik El Bannany  Copyright (c) 12/14/18 11:33 AM.
  */
 
-package net.teb.rain;
+package net.xfantome.rain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

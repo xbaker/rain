@@ -2,7 +2,7 @@
  * Tarik El Bannany  Copyright (c) 12/14/18 11:36 AM.
  */
 
-package net.teb.rain;
+package net.xfantome.rain;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.testng.Assert;
