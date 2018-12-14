@@ -36,6 +36,11 @@
         <tag>HEAD</tag>
     </scm>
 
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/dexecutor/dexecutor-core/issues</url>
+    </issueManagement>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
