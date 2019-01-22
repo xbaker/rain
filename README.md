@@ -9,7 +9,7 @@ Based on apache POI library and the power of java reflexion.
 <dependency>
   <groupId>net.xfantome</groupId>
   <artifactId>rain</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 #### Create spreadsheet 
@@ -53,10 +53,12 @@ Test example
           List<User> data = this.data();
            RainSheet<User> rainSheet = new RainSheet.RainSheetBuilder<User>()
                          .target(User.class)
-                         .name("test")
-                         .insertDateInName(false)
-                         .rowContent(data)
-                         .build();
+                                         .multipleRowSeparator(MultipleRowSeparator.SPACE)
+                                         .name("test")
+                                         .insertChildRowName(true)
+                                         .insertDateInName(false)
+                                         .rowContent(data)
+                                         .build();
          
            WorkBookGenerator<User> workBookGenerator = new WorkBookGenerator<>(rainSheet);
            Workbook workbook = workBookGenerator.render();
