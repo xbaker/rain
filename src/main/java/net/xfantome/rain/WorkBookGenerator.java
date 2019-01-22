@@ -101,15 +101,25 @@ public class WorkBookGenerator<T> {
         return headers;
     }
 
+    private List<Field> itemField(Class clazz) {
+        List<Field> f = new ArrayList<>();
+        f.addAll(Arrays.asList(clazz.getDeclaredFields()));
+        Class superClass = clazz.getSuperclass();
+        while (superClass != null) {
+            f.addAll(Arrays.asList(superClass.getDeclaredFields()));
+            superClass = superClass.getSuperclass();
+        }
+        return f;
+    }
+
     private void Content(Sheet sheet) {
         int[] rowCount = new int[]{1};
         rowCount[0] = 1;
         this.rainSheet.getRowContent().stream().forEach((c) -> {
             try {
                 Row row = sheet.createRow(rowCount[0]++);
-                Field fields[] = c.getClass().getDeclaredFields();
+                List<Field> fields = itemField(c.getClass());
                 BeanInfo info = Introspector.getBeanInfo(c.getClass(), Object.class);
-
                 PropertyDescriptor[] props = info.getPropertyDescriptors();
                 int k = 0;
                 for (Field field : fields) {

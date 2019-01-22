@@ -9,5 +9,5 @@ import lombok.Data;
 @Data
 public class Country {
     @RainRow(name = "country Name")
-    private String name;
+    private String countryName;
 }

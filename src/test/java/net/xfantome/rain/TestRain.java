@@ -19,11 +19,15 @@ public class TestRain {
 
     private List<User> data() {
         List<User> data = new ArrayList<>();
-        data.add(new User("tarik", "tarik2", "address", "tarik.elbannany@gmail.net",
-                "0688559945", new City("city1", "descrtiption")));
+        User u = new User("tarik", "tarik2", "address", "tarik.elbannany@gmail.net",
+                "0688559945", new City("city1", "descrtiption"));
+        u.setCountryName("c1");
+        data.add(u);
 
-        data.add(new User("amin", "said", "address", "email@gmail.net",
-                "4512785946", new City("city2", "descrtiption2")));
+        User u1 = new User("amin", "said", "address", "email@gmail.net",
+                "4512785946", new City("city2", "descrtiption2"));
+        u1.setCountryName("c2");
+        data.add(u1);
 
         data.add(new User("issam", "mohammed", "address address", "email2@gmail.net",
                 "0688559945", new City("city3", "descrtiption5")));
