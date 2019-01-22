@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @RequiredArgsConstructor
 @ToString
 @Builder
