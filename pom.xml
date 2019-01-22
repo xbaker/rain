@@ -4,7 +4,7 @@
 
     <groupId>net.xfantome</groupId>
     <artifactId>rain</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <url>https://github.com/mrgren/rain</url>
     <name>rain</name>
@@ -33,7 +33,7 @@
         <connection>scm:git:git://github.com/mrgren/rain.git</connection>
         <developerConnection>scm:git:git@github.com:mrgren/rain.git</developerConnection>
         <url>https://github.com/mrgren/rain</url>
-        <tag>rain-1.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
