@@ -22,6 +22,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Getter
@@ -29,7 +30,7 @@ import java.util.List;
 public class WorkBookGenerator<T> {
 
     private CellStyle style;
-
+    private List<Field> fields = new ArrayList<>();
     private RainSheet<T> rainSheet;
     private List<String> headers;
     private String name;
@@ -79,8 +80,17 @@ public class WorkBookGenerator<T> {
         return sheet;
     }
 
+    private void supperClassFields(Class clazz) {
+        if (clazz.getSuperclass() == null) {
+            return;
+        }
+        fields.addAll(Arrays.asList(clazz.getDeclaredFields()));
+        supperClassFields(clazz.getSuperclass());
+    }
+
     private List<String> rowsName() {
-        Field fields[] = this.rainSheet.getTarget().getDeclaredFields();
+        fields.addAll(Arrays.asList(this.rainSheet.getTarget().getDeclaredFields()));
+        supperClassFields(this.rainSheet.getTarget().getSuperclass());
         for (Field field : fields) {
             RainRow rowName = field.getAnnotation(RainRow.class);
             if (rowName != null && rowName.include()) {

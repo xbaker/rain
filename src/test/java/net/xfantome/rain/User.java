@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User extends Country {
 
     @RainRow
     private String firstName;
