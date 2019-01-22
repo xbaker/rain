@@ -52,7 +52,7 @@ public class RainSheet<T> implements Serializable {
     private Class target;
     /**
      * Target list class
-     * list<T> must be the same class of T
+     * list must be the same class of T
      */
     @NonNull
     private List<T> rowContent;
