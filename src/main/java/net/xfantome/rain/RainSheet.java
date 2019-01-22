@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @ToString
 @Builder
-class RainSheet<T> implements Serializable {
+public class RainSheet<T> implements Serializable {
     /**
      * Excel sheet name with default "Document"
      */

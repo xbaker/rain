@@ -8,6 +8,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-class RainException extends Exception {
+public class RainException extends Exception {
 
 }
