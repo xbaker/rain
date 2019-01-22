@@ -128,7 +128,7 @@ public class WorkBookGenerator<T> {
                     if (annotation != null && annotation.include()) {
                         Object value;
                         if (annotation.child().length > 0) {
-                            value = childs(annotation.child(), (T) c, props, field.getName());
+                            value = child(annotation.child(), (T) c, props, field.getName());
                         } else {
                             value = getFiledValue((T) c, props, field.getName());
                         }
@@ -143,14 +143,15 @@ public class WorkBookGenerator<T> {
         });
     }
 
-    private Object childs(String[] childName, T c, PropertyDescriptor[] props, String fieldName) {
+    private Object child(String[] childName, T c, PropertyDescriptor[] props, String fieldName) {
         Object value = getFiledValue(c, props, fieldName);
         Object result = "";
         try {
             BeanInfo info = Introspector.getBeanInfo(value.getClass(), Object.class);
             PropertyDescriptor[] pp = info.getPropertyDescriptors();
             for (int i = 0; i < childName.length; i++) {
-                result += childName[i] + " : " + getFiledValue((T) value, pp, childName[i]) + "; ";
+                String prefix = this.rainSheet.isInsertChildRowName() ? childName[i] + " : " : "";
+                result += prefix + getFiledValue((T) value, pp, childName[i]) + this.rainSheet.getMultipleRowSeparator().getSeparator();
             }
         } catch (IntrospectionException e) {
             e.printStackTrace();

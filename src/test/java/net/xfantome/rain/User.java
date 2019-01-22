@@ -23,7 +23,7 @@ public class User extends Country {
     private String email;
     @RainRow(name = "PHONE")
     private String phone;
-    @RainRow(child = {"label"})
+    @RainRow(child = {"label", "description"})
     private City city;
 
 }

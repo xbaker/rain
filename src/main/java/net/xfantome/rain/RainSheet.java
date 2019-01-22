@@ -32,6 +32,16 @@ public class RainSheet<T> implements Serializable {
      * Cell style
      */
     private CellStyle cellStyle;
+
+    /**
+     * Cell style
+     */
+    private boolean insertChildRowName = true;
+
+    /**
+     * Multiple Row Separator
+     */
+    private MultipleRowSeparator multipleRowSeparator = MultipleRowSeparator.COMMA;
     /**
      * sheet working index
      * with default true
