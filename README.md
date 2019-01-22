@@ -9,7 +9,7 @@ Based on apache POI library and the power of java reflexion.
 <dependency>
   <groupId>net.xfantome</groupId>
   <artifactId>rain</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 #### Create spreadsheet 
