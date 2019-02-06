@@ -22,4 +22,6 @@ public @interface RainRow {
     String[] child() default {};
 
     boolean include() default true;
+    
+    String dateTimeFormat() default "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 }

@@ -132,7 +132,8 @@ public class WorkBookGenerator<T> {
                         } else {
                             value = getFiledValue((T) c, props, field.getName());
                         }
-                        row.createCell(k).setCellValue(value != null ? String.valueOf(value) : "");
+                        
+                        row.createCell(k).setCellValue(value != null ? convert(value, annotation) : "");
                         k++;
 
                     }
@@ -141,6 +142,14 @@ public class WorkBookGenerator<T> {
                 log.info(e.getMessage());
             }
         });
+    }
+    
+    private String convert(Object value, RainRow annotation) {
+    	if(value instanceof LocalDateTime) {
+        	return ((LocalDateTime)value).format(DateTimeFormatter.ofPattern(annotation.dateTimeFormat()));
+        }else {
+        	return String.valueOf(value);
+        }
     }
 
     private Object child(String[] childName, T c, PropertyDescriptor[] props, String fieldName) {
