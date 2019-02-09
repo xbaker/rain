@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -25,5 +27,8 @@ public class User extends Country {
     private String phone;
     @RainRow(child = {"label", "description"})
     private City city;
+
+    @RainRow(dateTimeFormat = "dd/MM/yyyy")
+    private LocalDateTime date;
 
 }

@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,20 +21,20 @@ public class TestRain {
     private List<User> data() {
         List<User> data = new ArrayList<>();
         User u = new User("tarik", "tarik2", "address", "tarik.elbannany@gmail.net",
-                "0688559945", new City("city1", "descrtiption"));
+                "0688559945", new City("city1", "descrtiption"), LocalDateTime.now());
         u.setCountryName("c1");
         data.add(u);
 
         User u1 = new User("amin", "said", "address", "email@gmail.net",
-                "4512785946", new City("city2", "descrtiption2"));
+                "4512785946", new City("city2", "descrtiption2"), LocalDateTime.now());
         u1.setCountryName("c2");
         data.add(u1);
 
         data.add(new User("issam", "mohammed", "address address", "email2@gmail.net",
-                "0688559945", new City("city3", "descrtiption5")));
+                "0688559945", new City("city3", "descrtiption5"), LocalDateTime.now()));
 
         data.add(new User("pierre", "rachid", "address5", "email5@gmail.net",
-                "0559752156", new City("city5", "descrtiption5")));
+                "0559752156", new City("city5", "descrtiption5"), LocalDateTime.now()));
         return data;
     }
 
