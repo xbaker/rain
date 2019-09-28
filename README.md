@@ -1,7 +1,7 @@
 # Rain
 ### Object to excel spreed sheet
 
-This is an object-oriented java library for writing Microsoft Office Excel spreadsheets.
+Object to Excel Java library.
 Based on apache POI library and the power of java reflexion.
 
 #### mvn repo

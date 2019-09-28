@@ -2,7 +2,7 @@
  * Tarik El Bannany  Copyright (c) 1/22/19 4:40 PM.
  */
 
-package net.xfantome.rain;
+package net.xbaker.rain;
 
 public enum MultipleRowSeparator {
     SPACE(" "),
@@ -18,9 +18,5 @@ public enum MultipleRowSeparator {
 
     public String getSeparator() {
         return separator;
-    }
-
-    public void setSeparator(String separator) {
-        this.separator = separator;
     }
 }

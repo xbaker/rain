@@ -2,11 +2,11 @@
  * Tarik El Bannany  Copyright (c) 12/14/18 11:36 AM.
  */
 
-package net.xfantome.rain;
+package net.xbaker.rain;
 
 import org.apache.poi.ss.usermodel.Workbook;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Test
+
 public class TestRain {
 
 

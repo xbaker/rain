@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.xfantome</groupId>
+    <groupId>net.xbaker</groupId>
     <artifactId>rain</artifactId>
     <version>1.0.6-SNAPSHOT</version>
 
@@ -16,8 +16,8 @@
     <developers>
         <developer>
             <name>tarik el bannany</name>
-            <email>mr.gren@hotmail.fr</email>
-            <url>https://github.com/mrgren</url>
+            <email>telb@xbaker.net</email>
+            <url>https://github.com/xbaker</url>
         </developer>
     </developers>
 
@@ -62,14 +62,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.11</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-
             <groupId>org.apache.maven.scm</groupId>
             <artifactId>maven-scm-provider-gitexe</artifactId>
             <version>1.9.5</version>
@@ -80,21 +79,14 @@
     <distributionManagement>
 
         <snapshotRepository>
-
             <id>ossrh</id>
-
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-
         </snapshotRepository>
 
         <repository>
-
             <id>ossrh</id>
-
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
-
             </url>
-
         </repository>
 
     </distributionManagement>
@@ -187,23 +179,14 @@
             </plugin>
 
             <plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
-
                 <artifactId>maven-release-plugin</artifactId>
-
                 <version>2.5.3</version>
-
                 <configuration>
-
                     <localCheckout>true</localCheckout>
-
                     <pushChanges>false</pushChanges>
-
                     <mavenExecutorId>forked-path</mavenExecutorId>
-
                     <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
-
                 </configuration>
             </plugin>
 
@@ -218,67 +201,65 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.2</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
     <profiles>
-
-        <!-- GPG Signature on release -->
-
         <profile>
-
             <id>release-sign-artifacts</id>
-
             <activation>
-
                 <property>
-
                     <name>performRelease</name>
-
                     <value>true</value>
-
                 </property>
-
             </activation>
 
             <build>
-
                 <plugins>
-
                     <plugin>
-
                         <groupId>org.apache.maven.plugins</groupId>
-
                         <artifactId>maven-gpg-plugin</artifactId>
-
                         <version>1.6</version>
-
                         <executions>
-
                             <execution>
-
                                 <id>sign-artifacts</id>
-
                                 <phase>verify</phase>
-
                                 <goals>
-
                                     <goal>sign</goal>
-
                                 </goals>
-
                             </execution>
-
                         </executions>
-
                     </plugin>
-
                 </plugins>
-
             </build>
-
         </profile>
-
     </profiles>
 
 </project>

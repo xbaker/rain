@@ -2,7 +2,7 @@
  * Tarik El Bannany  Copyright (c) 12/13/18 5:14 PM.
  */
 
-package net.xfantome.rain;
+package net.xbaker.rain;
 
 import lombok.Getter;
 import lombok.extern.java.Log;
@@ -24,6 +24,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
 
 @Getter
 @Log
@@ -132,10 +133,8 @@ public class WorkBookGenerator<T> {
                         } else {
                             value = getFiledValue((T) c, props, field.getName());
                         }
-                        
                         row.createCell(k).setCellValue(value != null ? convert(value, annotation) : "");
                         k++;
-
                     }
                 }
             } catch (IntrospectionException e) {
@@ -154,18 +153,20 @@ public class WorkBookGenerator<T> {
 
     private Object child(String[] childName, T c, PropertyDescriptor[] props, String fieldName) {
         Object value = getFiledValue(c, props, fieldName);
+        if(value == null){
+            return "";
+        }
         Object result = "";
         try {
             BeanInfo info = Introspector.getBeanInfo(value.getClass(), Object.class);
             PropertyDescriptor[] pp = info.getPropertyDescriptors();
-            for (int i = 0; i < childName.length; i++) {
-                String prefix = this.rainSheet.isInsertChildRowName() ? childName[i] + " : " : "";
-                result += prefix + getFiledValue((T) value, pp, childName[i]) + this.rainSheet.getMultipleRowSeparator().getSeparator();
+            for (String aChildName : childName) {
+                String prefix = this.rainSheet.isInsertChildRowName() ? aChildName + " : " : "";
+                result += prefix + getFiledValue((T) value, pp, aChildName) + this.rainSheet.getMultipleRowSeparator().getSeparator();
             }
         } catch (IntrospectionException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, e.getMessage(), e);
         }
-
         return result;
     }
 
@@ -185,17 +186,4 @@ public class WorkBookGenerator<T> {
         }
         return value;
     }
-
-    private Object getFiledType(PropertyDescriptor[] props, String fieldName) {
-        Class<?> type = null;
-        for (PropertyDescriptor pd : props) {
-            String name = pd.getName();
-            if (name.equals(fieldName)) {
-                type = pd.getPropertyType();
-                break;
-            }
-        }
-        return type;
-    }
-
 }
