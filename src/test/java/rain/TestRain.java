@@ -2,8 +2,12 @@
  * Tarik El Bannany  Copyright (c) 12/14/18 11:36 AM.
  */
 
-package net.xbaker.rain;
+package rain;
 
+import net.xbaker.rain.MultipleRowSeparator;
+import net.xbaker.rain.RainSheet;
+import net.xbaker.rain.RainSheetBuilder;
+import net.xbaker.rain.WorkBookGenerator;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,12 +26,12 @@ public class TestRain {
         List<User> data = new ArrayList<>();
         User u = new User("tarik", "tarik2", "address", "tarik.elbannany@gmail.net",
                 "0688559945", new City("city1", "descrtiption"), LocalDateTime.now());
-        u.setCountryName("c1");
+        u.setCountry(new Country("SIDI BENNOUR"));
         data.add(u);
 
         User u1 = new User("amin", "said", "address", "email@gmail.net",
                 "4512785946", new City("city2", "descrtiption2"), LocalDateTime.now());
-        u1.setCountryName("c2");
+        u1.setCountry(new Country("MAROC"));
         data.add(u1);
 
         data.add(new User("issam", "mohammed", "address address", "email2@gmail.net",
@@ -41,7 +45,8 @@ public class TestRain {
     @Test
     public void testCreation() throws IOException {
         List<User> data = this.data();
-        RainSheet<User> rainSheet = new RainSheet.RainSheetBuilder<User>()
+
+        RainSheet<User> rainSheet =  new RainSheetBuilder<User>()
                 .target(User.class)
                 .multipleRowSeparator(MultipleRowSeparator.SPACE)
                 .name("test")

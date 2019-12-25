@@ -4,12 +4,16 @@
 Object to Excel Java library.
 Based on apache POI library and the power of java reflexion.
 
+#### JAVA version
+
+JAVA 11
+
 #### mvn repo
 ```xml
 <dependency>
-  <groupId>net.xfantome</groupId>
+  <groupId>net.xbaker</groupId>
   <artifactId>rain</artifactId>
-  <version>1.0.5</version>
+  <version>1.6.0</version>
 </dependency>
 ```
 #### Create spreadsheet 
@@ -36,13 +40,11 @@ let's give the User.java class
 ```
 City.java class
 ```java
-// lombok way ;)
- @Data
- @RequiredArgsConstructor
- @AllArgsConstructor
+
  public class City {
      private String label;
      private String description;
+     // getters && setters
  }
 ```    
 Test example

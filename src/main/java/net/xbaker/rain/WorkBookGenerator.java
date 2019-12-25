@@ -4,8 +4,7 @@
 
 package net.xbaker.rain;
 
-import lombok.Getter;
-import lombok.extern.java.Log;
+
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -25,11 +24,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@Getter
-@Log
 public class WorkBookGenerator<T> {
 
+    private Logger log = Logger.getLogger(this.getClass().getName());
     private CellStyle style;
     private List<Field> fields = new ArrayList<>();
     private RainSheet<T> rainSheet;
@@ -44,7 +43,7 @@ public class WorkBookGenerator<T> {
         this.rowsName();
         this.name = sheetName();
         this.workbook = new XSSFWorkbook();
-        this.rainSheet.setName(getName());
+        this.rainSheet.setName(name);
         this.style = RainTemplate.headerStyle(this.workbook, this.rainSheet);
     }
 
@@ -186,4 +185,6 @@ public class WorkBookGenerator<T> {
         }
         return value;
     }
+
+
 }

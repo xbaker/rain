@@ -4,7 +4,7 @@
 
     <groupId>net.xbaker</groupId>
     <artifactId>rain</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>1.6.0-SNAPSHOT</version>
 
     <url>https://github.com/mrgren/rain</url>
     <name>rain</name>
@@ -43,17 +43,10 @@
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-            <scope>provided</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>

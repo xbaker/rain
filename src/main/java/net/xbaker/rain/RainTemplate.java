@@ -4,15 +4,14 @@
 
 package net.xbaker.rain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
 class RainTemplate {
+
+    protected RainTemplate(){}
 
     static CellStyle headerStyle(XSSFWorkbook workbook, RainSheet rainSheet) {
         Sheet sheet = workbook.createSheet(rainSheet.getName());
