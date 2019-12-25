@@ -4,7 +4,6 @@
 
 package net.xbaker.rain;
 
-import com.sun.istack.internal.NotNull;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
@@ -54,13 +53,11 @@ public class RainSheet<T> implements Serializable {
     /**
      * Target class
      */
-    @NotNull
     private Class target;
     /**
      * Target list class
      * list must be the same class of T
      */
-    @NotNull
     private List<T> rowContent;
     /**
      * Header style
@@ -115,7 +112,7 @@ public class RainSheet<T> implements Serializable {
     private FillPatternType fillPatternType;
 
     protected RainSheet(String name, Font font, CellStyle cellStyle, Boolean insertChildRowName, MultipleRowSeparator multipleRowSeparator, Integer sheetIndex,
-                        Boolean insertDateInName, @NotNull Class target, @NotNull List<T> rowContent,
+                        Boolean insertDateInName, Class target, List<T> rowContent,
                         Boolean headerStyleApplied, Short foregroundColor, Integer columnWidth, String fontName, Short fontColor, Boolean fontBold, FillPatternType fillPatternType) {
         if (target == null) {
             throw new NullPointerException("target is marked non-null but is null");
@@ -212,12 +209,12 @@ public class RainSheet<T> implements Serializable {
         return this.insertDateInName;
     }
 
-    @NotNull
+    
     public Class getTarget() {
         return this.target;
     }
 
-    @NotNull
+    
     public List<T> getRowContent() {
         return this.rowContent;
     }
@@ -278,7 +275,7 @@ public class RainSheet<T> implements Serializable {
         this.insertDateInName = insertDateInName;
     }
 
-    public void setTarget(@NotNull Class target) {
+    public void setTarget( Class target) {
         if (target == null) {
             throw new NullPointerException("target is marked non-null but is null");
         } else {
@@ -286,7 +283,7 @@ public class RainSheet<T> implements Serializable {
         }
     }
 
-    public void setRowContent(@NotNull List<T> rowContent) {
+    public void setRowContent( List<T> rowContent) {
         if (rowContent == null) {
             throw new NullPointerException("rowContent is marked non-null but is null");
         } else {
