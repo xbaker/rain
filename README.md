@@ -53,7 +53,7 @@ Test example
  public class MySpreadSheetRender {
      public MySpreadSheetRender() throws IOException {
           List<User> data = this.data();
-           RainSheet<User> rainSheet = new RainSheet.RainSheetBuilder<User>()
+           RainSheet<User> rainSheet = new RainSheetBuilder<User>()
                          .target(User.class)
                                          .multipleRowSeparator(MultipleRowSeparator.SPACE)
                                          .name("test")
