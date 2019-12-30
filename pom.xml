@@ -9,8 +9,7 @@
     <url>https://github.com/mrgren/rain</url>
     <name>rain</name>
     <description>
-        This is an object-oriented java library for writing Microsoft Office Excel spreadsheets.
-        Based on apache POI library and the power java reflexion.
+        This is an object-oriented java library for writing Microsoft Office Excel spreadsheets, Based on apache POI library and the power java reflexion.
     </description>
 
     <developers>
