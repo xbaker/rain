@@ -13,7 +13,7 @@ Based on apache POI library and the power of java reflexion.
 <dependency>
   <groupId>net.xbaker</groupId>
   <artifactId>rain</artifactId>
-  <version>1.6.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 #### Create spreadsheet 
